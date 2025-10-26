@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8, #1e3a8a);
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            color: #2563eb !important;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            transition: transform 0.15s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+        }
+        .btn-primary {
+            background-color: #2563eb;
+            border-color: #2563eb;
+        }
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            border-color: #1d4ed8;
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-user-graduate me-2"></i>
+                Fábio Hiromitsu Nawa
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/courses">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/certifications">Certificações</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:3001" target="_blank">Portfolio React</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">
+                        <i class="fas fa-code me-3"></i>
+                        <%= title %>
+                    </h1>
+                    <p class="lead mb-4"><%= message %></p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="/courses" class="btn btn-light btn-lg">
+                            <i class="fas fa-graduation-cap me-2"></i>
+                            Ver Cursos
+                        </a>
+                        <a href="/certifications" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-certificate me-2"></i>
+                            Ver Certificações
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="container mb-5">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="fas fa-server fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">API RESTful</h5>
+                        <p class="card-text">Endpoints completos para gerenciar cursos e certificações com operações CRUD.</p>
+                        <a href="/api/courses" class="btn btn-outline-primary" target="_blank">API Cursos</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="fas fa-database fa-3x text-success mb-3"></i>
+                        <h5 class="card-title">SQLite Database</h5>
+                        <p class="card-text">Banco de dados SQLite para armazenar informações de cursos e certificações.</p>
+                        <a href="/api/certifications" class="btn btn-outline-success" target="_blank">API Certificações</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="fas fa-file-code fa-3x text-warning mb-3"></i>
+                        <h5 class="card-title">EJS Templates</h5>
+                        <p class="card-text">Renderização dinâmica de conteúdo usando templates EJS com variáveis.</p>
+                        <a href="/courses" class="btn btn-outline-warning">Ver Templates</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Documentation -->
+    <section class="container mb-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">
+                            <i class="fas fa-book me-2"></i>
+                            Documentação da API
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Cursos API</h5>
+                                <ul class="list-unstyled">
+                                    <li><code>GET /api/courses</code> - Listar todos os cursos</li>
+                                    <li><code>GET /api/courses/:id</code> - Buscar curso por ID</li>
+                                    <li><code>POST /api/courses</code> - Criar novo curso</li>
+                                    <li><code>PUT /api/courses/:id</code> - Atualizar curso</li>
+                                    <li><code>DELETE /api/courses/:id</code> - Deletar curso</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Certificações API</h5>
+                                <ul class="list-unstyled">
+                                    <li><code>GET /api/certifications</code> - Listar todas as certificações</li>
+                                    <li><code>GET /api/certifications/:id</code> - Buscar certificação por ID</li>
+                                    <li><code>POST /api/certifications</code> - Criar nova certificação</li>
+                                    <li><code>PUT /api/certifications/:id</code> - Atualizar certificação</li>
+                                    <li><code>DELETE /api/certifications/:id</code> - Deletar certificação</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">&copy; <%= new Date().getFullYear() %> Fábio Hiromitsu Nawa. Todos os direitos reservados.</p>
+            <p class="mb-0 mt-2">
+                <small>Desenvolvido com Node.js, Express, EJS e SQLite</small>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
